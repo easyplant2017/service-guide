@@ -137,18 +137,53 @@
     .south .region-header { background: var(--grad-3); } 
 
     .location-list { padding: 12px; }
-    .loc-item { display: flex; align-items: flex-start; margin-bottom: 8px; font-size: 12.5px; }
+    .loc-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 12.5px; border-bottom: 1px solid #f9f9f9; padding-bottom: 5px; }
     .loc-pin { margin-right: 6px; font-size: 13px; }
     .loc-info b { display: block; color: #333; font-size: 13.5px; margin-bottom: 1px;}
     .loc-area { color: #888; font-size: 11px; background: #f4f4f4; padding: 0px 5px; border-radius: 3px;}
+    
+    /* Google Map 按鈕樣式 */
+    .map-btn {
+        text-decoration: none;
+        background: #fff;
+        border: 1px solid #ddd;
+        color: #5b7e55;
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+    .map-btn:hover { background: #5b7e55; color: #fff; }
+
+    /* LINE 客服按鈕樣式 */
+    .cta-container { text-align: center; margin-top: 30px; margin-bottom: 10px; }
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #5b7e55;
+        color: white;
+        text-decoration: none;
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 0 8px 15px rgba(91, 126, 85, 0.3);
+        transition: all 0.3s ease;
+    }
+    .cta-button:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(91, 126, 85, 0.4); background: #4a6645; }
+    .cta-button span { margin-right: 10px; font-size: 22px; }
 
     .notice-footer { 
-        text-align: center; margin-top: 40px; padding: 15px; background: var(--grad-4); color: white; border-radius: 50px; font-size: 15px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(74, 93, 78, 0.3);
+        text-align: center; margin-top: 20px; padding: 15px; background: var(--grad-4); color: white; border-radius: 50px; font-size: 15px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(74, 93, 78, 0.3);
     }
 
     @media (max-width: 768px) {
         .quadrant-grid, .region-grid { grid-template-columns: 1fr; }
         .header h1 { font-size: 32px; }
+        .region-grid { gap: 10px; }
     }
 </style>
 </head>
@@ -169,6 +204,10 @@
                         <span class="highlight-tag">最推薦</span>
                         <b>市集展售活動</b>
                         <span class="desc">追蹤社群公告，出攤現場收件最便利。</span>
+                    </li>
+                    <li>
+                        <b>7-11 店到店寄送</b>
+                        <span class="desc">下班寄件最便利。注意：維護完成瓶栽將統一由黑貓冷藏宅配寄出。</span>
                     </li>
                     <li>
                         <b>全台寄售點代收</b>
@@ -291,7 +330,10 @@
 
                 <div class="fee-info" style="border-left-color: #4a5d4e; background: #f0f2f0; margin-top: 10px; margin-bottom: 10px;">
                     <div style="font-size: 13px; margin-bottom: 4px;"><b>🕒 營業時間</b> 平日 10:00 - 17:00 (需預約)</div>
-                    <div style="font-size: 13px;"><b>📍 地址</b> 新北市新莊區幸福東路118號</div>
+                    <div style="font-size: 13px; display: flex; align-items: center; justify-content: space-between;">
+                        <span><b>📍 地址</b> 新北市新莊區幸福東路118號</span>
+                        <a href="https://maps.app.goo.gl/FaJq5jQt7VMrndMf9?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
                 </div>
 
                 <div class="event-info" style="border-left-color: #4a5d4e; background: #f9faf9;">
@@ -313,32 +355,75 @@
             <div class="region-card north">
                 <div class="region-header">北部地區</div>
                 <div class="location-list">
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>天母SOGO GARDENA</b><span class="loc-area">台北市</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>台灣泰雅-A17青埔店</b><span class="loc-area">桃園市</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>大江購物中心 九號市集</b><span class="loc-area">桃園市</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>竹北遠百 十二籃市集</b><span class="loc-area">新竹縣</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>好日。新竹</b><span class="loc-area">新竹市</span></div></div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>天母SOGO GARDENA</b><span class="loc-area">台北市</span></div>
+                        <a href="https://maps.app.goo.gl/8HMiJgjPk87QSyMaA?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>布山Lab X Pixel Lab像素實驗室</b><span class="loc-area">新北市三重區</span></div>
+                        <a href="https://maps.app.goo.gl/cKfqLo1E3bGQyKv3A?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>台灣泰雅-A17青埔店</b><span class="loc-area">桃園市</span></div>
+                        <a href="https://maps.app.goo.gl/HS6UigBkt2NpKFH29?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>大江購物中心 九號市集</b><span class="loc-area">桃園市</span></div>
+                        <a href="https://maps.app.goo.gl/ULZnDDkFjRfX2a686?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>竹北遠百 十二籃市集</b><span class="loc-area">新竹縣</span></div>
+                        <a href="https://maps.app.goo.gl/Kh6kUbFxNBXcgy2z9?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>好日。新竹</b><span class="loc-area">新竹市</span></div>
+                        <a href="https://maps.app.goo.gl/TUQeRjQE9PhxBcsa6?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
                 </div>
             </div>
 
             <div class="region-card central">
                 <div class="region-header">中部地區</div>
                 <div class="location-list">
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>旋轉花市 (北屯)</b><span class="loc-area">台中市</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>巍峨木業 車埕店</b><span class="loc-area">南投縣</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>森森漫 咖啡甜點</b><span class="loc-area">雲林縣</span></div></div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>旋轉花市 (北屯)</b><span class="loc-area">台中市</span></div>
+                        <a href="https://maps.app.goo.gl/JyztTUaNwqwrgQsP6?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>巍峨木業 車埕店</b><span class="loc-area">南投縣</span></div>
+                        <a href="https://maps.app.goo.gl/gBbR5dAZht7Eiv2y8?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>森森漫 咖啡甜點</b><span class="loc-area">雲林縣</span></div>
+                        <a href="https://maps.app.goo.gl/9gTySwSvb3ammGYJA?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
                 </div>
             </div>
 
             <div class="region-card south">
                 <div class="region-header">南部地區</div>
                 <div class="location-list">
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>森‧聚場 & 森舍聚場</b><span class="loc-area">高雄駁二</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>新光三越中山店 GARDENA</b><span class="loc-area">台南市</span></div></div>
-                    <div class="loc-item"><div class="loc-pin">📍</div><div class="loc-info"><b>嵐翎白砂渡假莊園</b><span class="loc-area">屏東縣</span></div></div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>森‧聚場 & 森舍聚場</b><span class="loc-area">高雄駁二</span></div>
+                        <a href="https://maps.app.goo.gl/cPrhYb8LUgYdDiJ8A?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>新光三越中山店 GARDENA</b><span class="loc-area">台南市</span></div>
+                        <a href="https://maps.app.goo.gl/DGR8ciZgEAvLqfMd8?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
+                    <div class="loc-item">
+                        <div class="loc-info"><b>嵐翎白砂渡假莊園</b><span class="loc-area">屏東縣</span></div>
+                        <a href="https://maps.app.goo.gl/sAEn5AZM9JyZHECJ9?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="cta-container">
+        <a href="https://lin.ee/ebPVKrT" target="_blank" class="cta-button">
+            <span>💬</span> 點我加 LINE 客服預約
+        </a>
     </div>
 
     <div class="notice-footer">🚀 所有服務，請先私訊「小室瓶栽」官方帳號預約安排</div>
