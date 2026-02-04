@@ -4,136 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>小室瓶栽｜售後服務指引</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-    /* 全域設定：平滑捲動 */
+    /* 全域設定 */
     html { scroll-behavior: smooth; }
-
     :root {
         --grad-1: linear-gradient(135deg, #5b7e55, #81c784); 
         --grad-2: linear-gradient(135deg, #e67e22, #f39c12); 
         --grad-3: linear-gradient(135deg, #8e7cc3, #ba68c8); 
-        --grad-4: linear-gradient(135deg, #4a5d4e, #2c3e50); 
-        --bg-soft: #E2E2DE; 
+        --grad-4: linear-gradient(135deg, #34495e, #2c3e50); 
+        --bg-soft: #f4f4f2; 
         --primary: #4F5845; 
+        --orange-accent: #e67e22;
+        --green-accent: #5b7e55;
     }
-    
     * { box-sizing: border-box; }
 
+    /* 強制全站使用思源宋體 */
+    body, h1, h2, h3, b, span, div, a, p, li, ul { 
+        font-family: "Noto Serif TC", serif !important; 
+    }
+
     body { 
-        font-family: "Noto Serif TC", serif; 
         background: var(--bg-soft); 
         background-image: radial-gradient(#d1d1cc 1px, transparent 1px);
         background-size: 20px 20px;
         padding: 40px 20px; 
         color: #2c2c2c; 
-        line-height: 1.5;
+        line-height: 1.6;
     }
-    .container { max-width: 960px; margin: auto; }
+    .container { max-width: 1050px; margin: auto; }
     
-    .header { text-align: center; margin-bottom: 40px; }
-    .header h1 { 
-        font-family: 'Noto Serif TC', serif;
-        color: var(--primary); font-size: 42px; font-weight: 900;
-        margin-bottom: 10px; position: relative; display: inline-block; letter-spacing: 2px;
-    }
-    .header h1::after {
-        content: ''; display: block; width: 60%; height: 5px; background: var(--grad-1); margin: 8px auto 0; border-radius: 2px;
-    }
-    .header p { color: #666; font-size: 19px; font-weight: 700; }
+    /* 標題區 */
+    .header { text-align: center; margin-bottom: 50px; }
+    .header h1 { color: var(--primary); font-size: 46px; font-weight: 900; margin-bottom: 12px; position: relative; display: inline-block; letter-spacing: 3px; }
+    .header h1::after { content: ''; display: block; width: 80px; height: 5px; background: var(--grad-1); margin: 15px auto 0; border-radius: 2px; }
+    .header p { color: #666; font-size: 20px; font-weight: 700; margin-top: 15px; }
 
-    /* 四分位格系統 */
-    .quadrant-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px; }
-    .quad-box { 
-        background: white; border-radius: 16px; overflow: hidden;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        display: flex; flex-direction: column;
-    }
-    .quad-box:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 15px 25px rgba(79, 88, 69, 0.12); }
-    .quad-header { padding: 12px 20px; color: white; font-size: 18px; font-weight: bold; display: flex; align-items: center; }
-    .icon-circle { background: rgba(255,255,255,0.2); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; }
+    /* 四大區塊 Grid */
+    .quadrant-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 60px; }
+    .quad-box { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    .quad-header { padding: 18px 28px; color: white; font-size: 22px; font-weight: 700; display: flex; align-items: center; letter-spacing: 1px; }
+    .icon-circle { background: rgba(255,255,255,0.25); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
 
     .q1 .quad-header { background: var(--grad-1); }
     .q2 .quad-header { background: var(--grad-2); }
     .q3 .quad-header { background: var(--grad-3); }
     .q4 .quad-header { background: var(--grad-4); }
 
-    .quad-content { padding: 15px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .quad-content { padding: 28px; flex-grow: 1; }
     ul.service-list { padding: 0; list-style: none; margin: 0; } 
-    ul.service-list li { margin-bottom: 0px; padding-bottom: 8px; border-bottom: 1px dashed #eee; } 
-    ul.service-list b { color: var(--primary); font-size: 16px; display: block; margin-bottom: 2px; }
-    ul.service-list span.desc { font-size: 13.5px; color: #666; }
+    ul.service-list li { margin-bottom: 18px; border-bottom: 1px dashed #eee; padding-bottom: 12px; position: relative;} 
+    ul.service-list li:last-child { border-bottom: none; }
     
-    .highlight-tag { float: right; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .title-row { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 6px; }
+    ul.service-list b { color: #2c3e50; font-size: 19px; font-weight: 900; }
+
+    ul.service-list span.desc { font-size: 15px; color: #666; display: block; line-height: 1.5; }
+    .highlight-tag { float: right; padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+    /* 按鈕樣式修正 */
+    .guide-btn {
+        text-decoration: none; font-size: 12px; padding: 4px 15px; border-radius: 20px; font-weight: 700; transition: 0.2s; border: 2px solid; white-space: nowrap; display: inline-flex; align-items: center;
+    }
+    .guide-btn::after { content: '→'; margin-left: 5px; font-size: 14px; }
+    .guide-btn.green { border-color: var(--green-accent); color: var(--green-accent); background: #f4f9f4; }
+    .guide-btn.green:hover { background: var(--green-accent); color: white; }
+    .guide-btn.orange { border-color: var(--orange-accent); color: var(--orange-accent); background: #fffdf5; }
+    .guide-btn.orange:hover { background: var(--orange-accent); color: white; }
+
+    /* 資訊框樣式 */
+    .info-box { border-radius: 15px; padding: 18px; margin-top: 15px; font-size: 14.5px; border-left: 6px solid; }
+    .market-box { background: #f4f9f4; border-left-color: #5b7e55; }
+    .market-box b { color: #5b7e55; display: block; margin-bottom: 12px; font-size: 16px; font-weight: 900; }
     
-    .read-guide-btn {
-        float: right; text-decoration: none; font-size: 11px; padding: 1px 10px;
-        border-radius: 20px; font-weight: bold; margin-left: 5px; transition: all 0.2s; border: 1px solid transparent;
-    }
-    .read-guide-btn.green { border-color: #5b7e55; color: #5b7e55; background: white; }
-    .read-guide-btn.green:hover { background: #5b7e55; color: white; }
-    .read-guide-btn.orange { border-color: #e67e22; color: #e67e22; background: white; }
-    .read-guide-btn.orange:hover { background: #e67e22; color: white; }
+    /* 市集預告一行化排版修正 */
+    .market-item { position: relative; padding-left: 28px; margin-bottom: 18px; }
+    .market-item::before { content: '🗓️'; position: absolute; left: 0; top: 2px; font-size: 16px; }
+    .m-title { font-weight: 900; color: #2c3e50; display: block; font-size: 15px; margin-bottom: 2px; }
+    .m-loc { display: block; font-size: 13.5px; color: #4F5845; margin-bottom: 2px; font-weight: 600; }
+    .m-time { display: block; font-size: 13px; color: #777; line-height: 1.4; }
 
-    .fee-info, .event-info { padding: 10px 15px 8px 15px; border-radius: 10px; margin-top: 5px; font-size: 13.5px; color: #2c2c2c; }
-    .event-info { background: #f4f9f4; border-left: 4px solid #5b7e55; }
-    .fee-info { background: #fffbf0; border-left: 4px solid #e67e22; }
-    .fee-list { padding: 0; list-style: none; margin: 0; } 
-    .fee-list li { position: relative; padding-left: 20px; margin-bottom: 3px; font-size: 12.5px; }
-    .fee-list li::before { content: '🌱'; position: absolute; left: 0; font-size: 11px; }
+    .fee-box { background: #fffdf5; border-left-color: #e67e22; text-align: left; }
+    .gray-box { background: #f9f9f9; border-left-color: #95a5a6; text-align: left; }
+    .purple-box { background: #fdfbff; border-left-color: #8e7cc3; text-align: left; }
+    .navy-box { background: #f8f9fb; border-left-color: #34495e; text-align: left; }
+    
+    /* 點狀列表樣式 🌱 */
+    .dot-item { position: relative; padding-left: 24px; margin-bottom: 8px; line-height: 1.5; font-weight: 500; }
+    .dot-item::before { content: '🌱'; position: absolute; left: 0; font-size: 13px; top: 3px; color: #5b7e55;}
+    
+    /* 無 Emoji 列表樣式 */
+    .plain-item { position: relative; padding-left: 0; margin-bottom: 8px; line-height: 1.5; font-weight: 500; display: block; }
+    .plain-item b { font-weight: 900; color: #2c3e50; }
 
-    .map-section, .locker-section { margin-top: 40px; }
-    .map-title {
-        font-family: 'Noto Serif TC', serif; text-align: center; font-size: 26px; color: var(--primary); margin-bottom: 20px;
-        display: flex; align-items: center; justify-content: center; font-weight: 900;
-    }
-    .map-title span { margin-right: 10px; font-size: 28px; }
+    /* 地圖與捷運區塊 */
+    .map-section, .locker-section { margin-top: 60px; text-align: center; }
+    .map-title { font-size: 36px; font-weight: 900; color: var(--primary); margin-bottom: 40px; }
+    .region-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .region-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.07); }
+    .region-header { padding: 15px; text-align: center; color: white; font-weight: 900; font-size: 19px; letter-spacing: 2px; }
+    .north-h { background: var(--grad-4); } .central-h { background: var(--grad-2); } .south-h { background: var(--grad-3); }
 
-    .region-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .region-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
-    .region-header { padding: 10px; text-align: center; color: white; font-weight: bold; font-size: 15px; }
-
-    .north .region-header { background: var(--grad-4); } 
-    .central .region-header { background: var(--grad-2); } 
-    .south .region-header { background: var(--grad-3); } 
-
-    .location-list { padding: 12px; }
-    .loc-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 12.5px; border-bottom: 1px solid #f9f9f9; padding-bottom: 5px; }
-    .loc-info b { display: block; color: #333; font-size: 13.5px; margin-bottom: 1px;}
-    .loc-area { color: #888; font-size: 11px; background: #f4f4f4; padding: 0px 5px; border-radius: 3px;}
-
+    .loc-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 22px; border-bottom: 1.5px solid #f5f5f5; }
+    .loc-name { text-align: left; }
+    .loc-name b { display: block; font-size: 15px; color: #2c3e50; font-weight: 900; }
+    .loc-name span { font-size: 12px; color: #95a5a6; background: #f0f2f5; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+    
     .map-btn {
-        text-decoration: none; background: #fff; border: 1px solid #ddd; color: #5b7e55; font-size: 11px;
-        padding: 2px 8px; border-radius: 5px; font-weight: bold; transition: all 0.2s; white-space: nowrap;
+        text-decoration: none; border: 2px solid #ddd; color: #5b7e55; font-size: 12px; padding: 5px 12px; border-radius: 8px; font-weight: 900; white-space: nowrap; display: flex; align-items: center;
     }
-    .map-btn:hover { background: #5b7e55; color: #fff; }
+    .map-btn:hover { background: #5b7e55; color: white; border-color: #5b7e55; }
 
-    .mrt-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; padding: 10px; background: rgba(255,255,255,0.5); border-radius: 10px; justify-content: center; }
-    .mrt-tag { display: inline-block; font-size: 10px; color: white; padding: 1px 6px; border-radius: 4px; font-weight: bold; vertical-align: middle; white-space: nowrap; }
-    .mrt-br { background-color: #c48c31; } .mrt-r { background-color: #e3002c; } .mrt-bl { background-color: #0070bd; } .mrt-o { background-color: #f8b61c; } .mrt-g { background-color: #008659; } .mrt-y { background-color: #ffdb00; color: black !important; }
+    /* 捷運樣式 */
+    .mrt-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; padding: 15px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .mrt-tag { font-size: 11px; color: white; padding: 3px 10px; border-radius: 6px; font-weight: 900; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .mrt-br { background: #c48c31; } .mrt-r { background: #e3002c; } .mrt-bl { background: #0070bd; } .mrt-o { background: #f8b61c; } .mrt-g { background: #008659; } .mrt-y { background: #ffdb00; color: black !important; }
 
-    .locker-container { background: white; border-radius: 16px; padding: 5px 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-    .locker-row { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; flex-wrap: nowrap; }
+    .locker-container { background: white; border-radius: 24px; padding: 15px 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); text-align: left; }
+    .locker-row { display: flex; align-items: center; padding: 18px 0; border-bottom: 2px solid #f8f8f8; }
     .locker-row:last-child { border-bottom: none; }
-    .locker-name-col { width: 160px; font-weight: 900; color: var(--primary); font-size: 14px; flex-shrink: 0; display: flex; align-items: center; gap: 3px; }
-    .locker-pos-col { flex-grow: 1; font-size: 12px; color: #666; padding: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .locker-num-col { width: 130px; text-align: right; flex-shrink: 0; display: flex; gap: 4px; justify-content: flex-end; }
-    .num-tag { font-size: 10px; background: #f8f9f8; padding: 2px 5px; border-radius: 4px; color: #4a5d4e; border: 1px solid #eef0ee; white-space: nowrap; }
+    .st-name { width: 210px; font-weight: 900; font-size: 16px; color: #2c3e50; display: flex; align-items: center; gap: 6px; flex-shrink: 0;}
+    .st-pos { flex-grow: 1; font-size: 14.5px; color: #555; padding: 0 20px; line-height: 1.4; } 
+    .st-count { width: 160px; text-align: right; flex-shrink: 0; display: flex; gap: 6px; justify-content: flex-end; }
+    .count-tag { font-size: 11.5px; background: #f4f6f4; color: #4F5845; padding: 4px 10px; border-radius: 8px; border: 1.5px solid #eef0ee; font-weight: 900; white-space: nowrap; }
 
-    .check-btn { display: block; text-align: center; background: var(--grad-1); color: white; text-decoration: none; padding: 12px; border-radius: 10px; margin-top: 15px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .cta-container { text-align: center; margin-top: 30px; }
-    .cta-button { 
-        display: inline-flex; align-items: center; background: #5b7e55; color: white; text-decoration: none; 
-        padding: 15px 35px; border-radius: 50px; font-size: 18px; font-weight: bold; box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    }
-    .cta-button span { margin-right: 10px; font-size: 22px; }
-    .notice-footer { text-align: center; margin-top: 20px; padding: 15px; background: var(--grad-4); color: white; border-radius: 50px; font-size: 15px; }
+    /* 底部綠色查詢按鈕 */
+    .green-check-btn { display: block; text-align: center; background: #5b7e55; color: white; text-decoration: none; padding: 18px; border-radius: 18px; margin-top: 30px; font-weight: 900; font-size: 17px; box-shadow: 0 12px 25px rgba(91, 126, 85, 0.3); transition: 0.3s; }
+    .green-check-btn:hover { transform: translateY(-3px); background: #4a6645; }
 
+    .cta-container { text-align: center; margin-top: 50px; margin-bottom: 40px; }
+    .cta-button { display: inline-flex; align-items: center; background: #5b7e55; color: white; text-decoration: none; padding: 20px 50px; border-radius: 60px; font-size: 22px; font-weight: 900; box-shadow: 0 15px 35px rgba(91, 126, 85, 0.4); transition: 0.3s; }
+    .cta-button span { margin-right: 15px; font-size: 28px; }
+    .notice-footer { text-align: center; padding: 18px; background: #34495e; color: white; border-radius: 60px; font-size: 16px; font-weight: 700; width: 100%; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+    /* 手機版優化 */
     @media (max-width: 768px) {
-        .quadrant-grid, .region-grid { grid-template-columns: 1fr; }
-        .locker-name-col { width: 110px; } .locker-num-col { width: 110px; }
-        .header h1 { font-size: 32px; }
+        body { padding: 30px 15px; }
+        .header h1 { font-size: 38px; }
+        .quadrant-grid, .region-grid { grid-template-columns: 1fr; gap: 30px; }
+        .title-row { flex-wrap: wrap; }
+        .locker-row { flex-wrap: wrap; padding: 15px 0; }
+        .st-name { width: 100%; margin-bottom: 6px; }
+        .st-pos { width: 100%; padding: 0; font-size: 14px; margin-bottom: 8px; }
+        .st-count { display: none; }
     }
 </style>
 </head>
@@ -142,7 +156,7 @@
 <div class="container">
     <div class="header">
         <h1>小室瓶栽｜售後服務</h1>
-        <p>探索最適合您的瓶栽維護方式：</p>
+        <p>櫃位轉型，服務升級。探索最適合您的瓶栽維護方式：</p>
     </div>
 
     <div class="quadrant-grid">
@@ -150,11 +164,42 @@
             <div class="quad-header"><div class="icon-circle">📍</div>全台便利區</div>
             <div class="quad-content">
                 <ul class="service-list">
-                    <li><span class="highlight-tag" style="background:var(--grad-1)">最推薦</span><b>市集展售活動</b><span class="desc">現場收件最便利。</span></li>
+                    <li><span class="highlight-tag" style="background:#5b7e55">最推薦</span><b>市集展售活動</b><span class="desc">現場收件最便利。</span></li>
                     <li><b>7-11 店到店寄送</b><span class="desc">下班寄件便利。注意：寄回將採黑貓冷藏宅配。</span></li>
-                    <li><b>全台寄售點代收 <a href="#consignment-guide" class="read-guide-btn green">閱讀寄售點指引</a></b><span class="desc">合作店家交件，詳見下方地圖。</span></li>
+                    <li>
+                        <div class="title-row">
+                            <b>全台寄售點代收</b>
+                            <a href="#consignment-section" class="guide-btn green">閱讀寄售點指引</a>
+                        </div>
+                        <span class="desc">可至指定合作店家交件，詳見下方地圖。</span>
+                    </li>
                     <li><b>宅配物流服務</b><span class="desc">自行寄送回新莊門市。</span></li>
                 </ul>
+                <div class="info-box market-box">
+                    <b>🎪 近期市集展售預告：</b>
+                    <div class="market-list">
+                        <div class="market-item">
+                            <span class="m-title">台灣植顏博覽會</span>
+                            <span class="m-loc">台中麗寶福容國際展覽中心</span>
+                            <span class="m-time">1/24 (六) 10:00-18:00 / 1/25 (日) 10:00-17:00</span>
+                        </div>
+                        <div class="market-item">
+                            <span class="m-title">點點綠市集</span>
+                            <span class="m-loc">雙連捷運站1號出口-後方廣場</span>
+                            <span class="m-time">1/31 (六) 14:00-20:00 / 2/01 (日) 14:00-19:00</span>
+                        </div>
+                        <div class="market-item">
+                            <span class="m-title">馬到春暖好物集</span>
+                            <span class="m-loc">南港軟體園區一期</span>
+                            <span class="m-time">2/02 (一) - 2/06 (五) 10:00 - 17:00</span>
+                        </div>
+                        <div class="market-item">
+                            <span class="m-title">水美園</span>
+                            <span class="m-loc">圓山花博</span>
+                            <span class="m-time">2/20 (五) - 2/22 (日) 10:00 - 19:00</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -162,26 +207,32 @@
             <div class="quad-header"><div class="icon-circle">⚡</div>雙北快速區</div>
             <div class="quad-content">
                 <ul class="service-list">
-                    <li style="border-bottom: none;">
-                        <span class="highlight-tag" style="background:var(--grad-2)">最方便</span>
-                        <b>捷運置物櫃收送 <a href="#subway-locker-guide" class="read-guide-btn orange">閱讀捷運收送指引</a></b>
-                        <span class="desc">指定站點交件，時間彈性。</span>
+                    <li>
+                        <div class="title-row">
+                            <b>捷運置物櫃收送</b>
+                            <a href="#subway-section" class="guide-btn orange">閱讀捷運收送指引</a>
+                            <span class="highlight-tag" style="background:#e67e22; float:none; margin-left: -5px;">最方便</span>
+                        </div>
+                        <span class="desc">指定捷運站點交件，時間彈性。</span>
                     </li>
                 </ul>
-                <div class="fee-info" style="border-left-color: #f39c12; background: #fffdf5; margin-top: 10px;">
-                    <b>🚇 捷運置物櫃保管費：</b>
-                    <ul class="fee-list">
-                        <li><b>顧客寄放：</b>顧客先付基本費，領取費用餘額由小室瓶栽支付。</li>
-                        <li><b>小室放回：</b>小室瓶栽先付基本費，領取費用餘額由顧客支付。</li>
-                    </ul>
+                <div class="info-box fee-box">
+                    <div class="plain-item"><b>🚇 捷運置物櫃保管費：</b></div>
+                    <div class="plain-item"><b>顧客寄放：</b><br>顧客先付基本費，領取費用餘額由小室支付。</div>
+                    <div class="plain-item" style="margin-top:5px;"><b>小室瓶栽放回：</b><br>小室先付基本費，領取費用餘額由顧客支付。</div>
                 </div>
-                <div class="fee-info" style="margin-top:10px;">
-                    <b>💡 Lalamove 運費分擔：</b>
-                    <ul class="fee-list">
-                        <li>材料費超過 5000 來回運費小室負擔</li>
-                        <li>2500 - 4999 運費小室負擔一半!!</li>
-                        <li>2500 以下 來回運費自行負擔</li>
-                    </ul>
+                <ul class="service-list" style="margin-top:25px">
+                    <li><b>Lalamove 快遞</b><span class="desc">當日即刻收件，適合急需維護的瓶友。</span></li>
+                </ul>
+                <div class="info-box fee-box">
+                    <div class="plain-item"><b>📦 Lalamove 材積限制：</b></div>
+                    <div class="plain-item">40cm * 40cm * 40cm 以內；重量不超過 20公斤。</div>
+                </div>
+                <div class="info-box fee-box">
+                    <div class="plain-item"><b>💡 Lalamove 運費分擔：</b></div>
+                    <div class="dot-item">材料費達 5000 來回運費小室瓶栽負擔</div>
+                    <div class="dot-item">2500 - 4999 運費小室瓶栽幫你付一半!!</div>
+                    <div class="dot-item">2500 以下 來回運費自行負擔</div>
                 </div>
             </div>
         </div>
@@ -189,14 +240,19 @@
         <div class="quad-box q3">
             <div class="quad-header"><div class="icon-circle">💎</div>VIP 專屬親送</div>
             <div class="quad-content">
-                <ul class="service-list"><li><b>尊榮專員到府服務</b><span class="desc">針對高價值瓶栽提供一對一收送。</span></li></ul>
-                <div class="event-info" style="border-left-color: #8e7cc3; background: #fdfbff; margin-top: 10px;">
-                    <b style="color: #8e7cc3;">✨ 專屬服務優勢：</b>
-                    <ul class="fee-list" style="color: #2c2c2c;">
-                        <li><b>不限瓶數：</b>單次到府不限數量。</li>
-                        <li><b>即時溝通：</b>現場討論評估不費時。</li>
-                        <li><b>服務門檻：</b>$5,000 以上免費；未達收 $500。</li>
-                    </ul>
+                <ul class="service-list">
+                    <li><b>尊榮專員到府服務 (限雙北)</b><span class="desc">針對高價值瓶栽提供一對一收送服務。</span></li>
+                </ul>
+                <div class="info-box market-box" style="border-left-color:#8e7cc3; background:#fdfbff">
+                    <b style="color:#8e7cc3">✨ 專屬服務優勢：</b>
+                    <div class="dot-item"><b>不限瓶數：</b>單次到府收送不限維護數量。</div>
+                    <div class="dot-item"><b>即時溝通：</b>現場討論不費時，效率最高。</div>
+                    <div class="dot-item"><b>環境諮詢：</b>到府評估擺放位置與光照建議。</div>
+                </div>
+                <div class="info-box purple-box">
+                    <div class="plain-item"><b>💡 服務門檻：</b></div>
+                    <div class="dot-item">單次材料費達 $5,000 即可免費安排。</div>
+                    <div class="dot-item">單次材料費未達 $5,000 服務費$500/單趟。</div>
                 </div>
             </div>
         </div>
@@ -205,62 +261,67 @@
             <div class="quad-header"><div class="icon-circle">🏠</div>新莊旗艦店基地</div>
             <div class="quad-content">
                 <ul class="service-list">
-                    <li><span class="highlight-tag" style="background:var(--grad-4)">預約制</span><b>官方據點</b><span class="desc">提供專業養護環境。</span></li>
+                    <li><span class="highlight-tag" style="background:#34495e">預約制</span><b>官方據點</b><span class="desc">旗艦級實體門市，提供專業養護環境。</span></li>
                 </ul>
-                <div class="fee-info" style="border-left-color: #4a5d4e; background: #f0f2f0; margin-top: 10px;">
-                    <div style="font-size: 12px;"><b>🕒 營業時間</b> 平日 10:00 - 17:00 (需預約)</div>
-                    <div style="font-size: 12px; display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
-                        <span><b>📍 地址</b> 新莊區幸福東路118號</span>
-                        <a href="https://maps.app.goo.gl/FaJq5jQt7VMrndMf9?g_st=ic" target="_blank" class="map-btn" style="color:#4a5d4e; border-color:#4a5d4e;">🗺️ 導航</a>
+                <div class="info-box navy-box">
+                    <div class="plain-item"><b>🕒 營業時間：</b>平日 10:00 - 17:00 (需預約)</div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding-left: 0; margin-top: 10px;">
+                        <div><b>📍 地址：</b>新北市新莊區幸福東路118號</div>
+                        <a href="https://maps.app.goo.gl/FaJq5jQt7VMrndMf9?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a>
                     </div>
+                </div>
+                <div class="info-box navy-box">
+                    <b style="color:#34495e">🍀 服務項目：</b>
+                    <div class="dot-item">現場展售</div>
+                    <div class="dot-item">植物諮詢與推薦</div>
+                    <div class="dot-item">售後與照顧服務</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="consignment-guide" class="map-section">
-        <h2 class="map-title"><span>🗺️</span>全台代收寄售點指引</h2>
+    <div class="map-section" id="consignment-section">
+        <h2 class="map-title">🗺️ 全台代收寄售點指引</h2>
         <div class="region-grid">
             <div class="region-card north">
-                <div class="region-header">北部地區</div>
-                <div class="location-list">
-                    <div class="loc-item"><div class="loc-info"><b>天母SOGO GARDENA</b><span class="loc-area">台北市</span></div><a href="https://maps.app.goo.gl/8HMiJgjPk87QSyMaA?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>布山Lab X Pixel Lab</b><span class="loc-area">三重區</span></div><a href="https://maps.app.goo.gl/cKfqLo1E3bGQyKv3A?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>台灣泰雅-A17青埔店</b><span class="loc-area">桃園市</span></div><a href="https://maps.app.goo.gl/HS6UigBkt2NpKFH29?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>大江購物中心</b><span class="loc-area">桃園市</span></div><a href="https://maps.app.goo.gl/ULZnDDkFjRfX2a686?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>竹北遠百 十二籃</b><span class="loc-area">新竹縣</span></div><a href="https://maps.app.goo.gl/Kh6kUbFxNBXcgy2z9?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>好日。新竹</b><span class="loc-area">新竹市</span></div><a href="https://maps.app.goo.gl/TUQeRjQE9PhxBcsa6?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
+                <div class="region-header north-h">北部地區</div>
+                <div class="loc-list">
+                    <div class="loc-item"><div class="loc-name"><b>天母SOGO GARDENA</b><span>台北市</span></div><a href="https://maps.app.goo.gl/8HMiJgjPk87QSyMaA?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>布山Lab X Pixel Lab</b><span>三重區</span></div><a href="https://maps.app.goo.gl/cKfqLo1E3bGQyKv3A?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>台灣泰雅-A17青埔店</b><span>桃園市</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>大江購物中心</b><span>桃園市</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>竹北遠百 十二籃</b><span>新竹縣</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>好日。新竹</b><span>新竹市</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
                 </div>
             </div>
             <div class="region-card central">
-                <div class="region-header">中部地區</div>
-                <div class="location-list">
-                    <div class="loc-item"><div class="loc-info"><b>旋轉花市 (北屯)</b><span class="loc-area">台中市</span></div><a href="https://maps.app.goo.gl/JyztTUaNwqwrgQsP6?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>巍峨木業 車埕店</b><span class="loc-area">南投縣</span></div><a href="https://maps.app.goo.gl/gBbR5dAZht7Eiv2y8?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>森森漫 咖啡甜點</b><span class="loc-area">雲林縣</span></div><a href="https://maps.app.goo.gl/9gTySwSvb3ammGYJA?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
+                <div class="region-header central-h">中部地區</div>
+                <div class="loc-list">
+                    <div class="loc-item"><div class="loc-name"><b>旋轉花市 (北屯)</b><span>台中市</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>巍峨木業 車埕店</b><span>南投縣</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>森森漫 咖啡甜點</b><span>雲林縣</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
                 </div>
             </div>
             <div class="region-card south">
-                <div class="region-header">南部地區</div>
-                <div class="location-list">
-                    <div class="loc-item"><div class="loc-info"><b>森‧聚場 & 森舍聚場</b><span class="loc-area">高雄市</span></div><a href="https://maps.app.goo.gl/cPrhYb8LUgYdDiJ8A?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>新光三越中山店</b><span class="loc-area">台南市</span></div><a href="https://maps.app.goo.gl/DGR8ciZgEAvLqfMd8?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
-                    <div class="loc-item"><div class="loc-info"><b>嵐翎白砂渡假莊園</b><span class="loc-area">屏東縣</span></div><a href="https://maps.app.goo.gl/sAEn5AZM9JyZHECJ9?g_st=ic" target="_blank" class="map-btn">🗺️ 導航</a></div>
+                <div class="region-header south-h">南部地區</div>
+                <div class="loc-list">
+                    <div class="loc-item"><div class="loc-name"><b>森‧聚場高雄駁二</b><span>高雄市</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>新光中山店 GARDENA</b><span>台南市</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
+                    <div class="loc-item"><div class="loc-name"><b>嵐翎白砂渡假莊園</b><span>屏東縣</span></div><a href="#" class="map-btn">🗺️ 導航</a></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="subway-locker-guide" class="locker-section">
-        <h2 class="map-title"><span>🚇</span>捷運置物櫃收送指引</h2>
-        <div class="fee-info" style="border-left-color: #e67e22; background: #fffdf5; margin-bottom: 20px;">
-            <b>💡 預約與送件規則：</b>
-            <ul class="fee-list">
-                <li><b>預約時間：</b>最晚請於送件前一工作日 18:00 前預約完成。</li>
-                <li><b>開放時段：</b>僅開放週四、週五預約（國定例假日除外）。</li>
-                <li><b>收費標準：</b>大格 $20/小時；小格 $10/小時（未滿一小時以一小時計）。</li>
-                <li><b>送件流程：</b>客人請於 12:00 前放入置物櫃，並拍照櫃號及密碼給客服。</li>
-            </ul>
+    <div class="locker-section" id="subway-section">
+        <h2 class="map-title">🚇 捷運置物櫃收送指引</h2>
+        <div class="info-box fee-box" style="margin-bottom:30px; text-align: left;">
+            <div class="plain-item"><b>💡 捷運置物櫃預約規則與費用：</b></div>
+            <div class="plain-item">1. 預約時段：僅開放週四、週五預約（國定例假日除外）。</div>
+            <div class="plain-item">2. 預約期限：最晚須於送件「前一工作日 18:00 前」完成客服預約。</div>
+            <div class="plain-item">3. 送件時限：客人須於預約當日「中午 12:00 前」將物品放入櫃位。</div>
+            <div class="plain-item">4. 回報機制：放入後請立即拍照「置物櫃櫃號」與「密碼」傳送給客服。</div>
+            <div class="plain-item">5. 收費標準：大的 $20/小時；小的 $10/小時（未滿一小時以一小時計）。</div>
         </div>
 
         <div class="mrt-legend">
@@ -268,32 +329,32 @@
         </div>
 
         <div class="locker-container">
-            <div class="locker-row"><div class="locker-name-col">南港展覽館 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-bl">BL</span></div><div class="locker-pos-col">出口 2A</div><div class="locker-num-col"><span class="num-tag">大：20</span><span class="num-tag">小：30</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">忠孝復興 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-bl">BL</span></div><div class="locker-pos-col">3F 文湖線大廳層</div><div class="locker-num-col"><span class="num-tag">大：18</span><span class="num-tag">小：10</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">南京復興 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-g">G</span></div><div class="locker-pos-col">近出口 5</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">大安 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-r">R</span></div><div class="locker-pos-col">近出口 1、2 轉折平台</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">台北車站 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-bl">BL</span></div><div class="locker-pos-col">M3出口往臺鐵坡道旁</div><div class="locker-num-col"><span class="num-tag">大：70</span><span class="num-tag">小：42</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">中山 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-g">G</span></div><div class="locker-pos-col">出口 1</div><div class="locker-num-col"><span class="num-tag">大：20</span><span class="num-tag">小：44</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">中正紀念堂 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-g">G</span></div><div class="locker-pos-col">近出口 6</div><div class="locker-num-col"><span class="num-tag">大：4</span><span class="num-tag">小：16</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">東門 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-o">O</span></div><div class="locker-pos-col">出口 5 旁走道</div><div class="locker-num-col"><span class="num-tag">大：16</span><span class="num-tag">小：32</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">民權西路 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-o">O</span></div><div class="locker-pos-col">近出口 1</div><div class="locker-num-col"><span class="num-tag">大：12</span><span class="num-tag">小：14</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">西門 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-bl">BL</span></div><div class="locker-pos-col">出口 5</div><div class="locker-num-col"><span class="num-tag">大：8</span><span class="num-tag">小：48</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">松江南京 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-o">O</span></div><div class="locker-pos-col">近出口 8</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">古亭 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-o">O</span></div><div class="locker-pos-col">近出口 4</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">大坪林 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-y">Y</span></div><div class="locker-pos-col">近出口 1</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">忠孝新生 <span class="mrt-tag mrt-bl">BL</span><span class="mrt-tag mrt-o">O</span></div><div class="locker-pos-col">近出口 4</div><div class="locker-num-col"><span class="num-tag">大：8</span><span class="num-tag">小：14</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">頭前庄 <span class="mrt-tag mrt-o">O</span><span class="mrt-tag mrt-y">Y</span></div><div class="locker-pos-col">近出口 2</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">景安 <span class="mrt-tag mrt-o">O</span><span class="mrt-tag mrt-y">Y</span></div><div class="locker-pos-col">近出口</div><div class="locker-num-col"><span class="num-tag">大：2</span><span class="num-tag">小：8</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">板橋 <span class="mrt-tag mrt-bl">BL</span><span class="mrt-tag mrt-y">Y</span></div><div class="locker-pos-col">通道層近 3A 出口</div><div class="locker-num-col"><span class="num-tag">大：12</span><span class="num-tag">小：20</span></div></div>
-            <div class="locker-row"><div class="locker-name-col">市政府 <span class="mrt-tag mrt-bl">BL</span></div><div class="locker-pos-col">近出口 4</div><div class="locker-num-col"><span class="num-tag">大：8</span><span class="num-tag">小：26</span></div></div>
+            <div class="locker-row"><div class="st-name">南港展覽館 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-bl">BL</span></div><div class="st-pos">出口 2A</div><div class="st-count"><span class="count-tag">大：20</span><span class="count-tag">小：30</span></div></div>
+            <div class="locker-row"><div class="st-name">台北車站 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-bl">BL</span></div><div class="st-pos">M3出口往臺鐵無障礙坡道旁</div><div class="st-count"><span class="count-tag">大：70</span><span class="count-tag">小：42</span></div></div>
+            <div class="locker-row"><div class="st-name">忠孝復興 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-bl">BL</span></div><div class="st-pos">3F 文湖線大廳層</div><div class="st-count"><span class="count-tag">大：18</span><span class="count-tag">小：10</span></div></div>
+            <div class="locker-row"><div class="st-name">南京復興 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-g">G</span></div><div class="st-pos">近出口 5</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">中山 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-g">G</span></div><div class="st-pos">出口 1</div><div class="st-count"><span class="count-tag">大：20</span><span class="count-tag">小：44</span></div></div>
+            <div class="locker-row"><div class="st-name">中正紀念堂 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-g">G</span></div><div class="st-pos">近出口 6</div><div class="st-count"><span class="count-tag">大：4</span><span class="count-tag">小：16</span></div></div>
+            <div class="locker-row"><div class="st-name">東門 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-o">O</span></div><div class="st-pos">出口 5 旁走道</div><div class="st-count"><span class="count-tag">大：16</span><span class="count-tag">小：32</span></div></div>
+            <div class="locker-row"><div class="st-name">大安 <span class="mrt-tag mrt-br">BR</span><span class="mrt-tag mrt-r">R</span></div><div class="st-pos">近出口 1、2 轉折平台</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">民權西路 <span class="mrt-tag mrt-r">R</span><span class="mrt-tag mrt-o">O</span></div><div class="st-pos">位置近出口 1</div><div class="st-count"><span class="count-tag">大：12</span><span class="count-tag">小：14</span></div></div>
+            <div class="locker-row"><div class="st-name">西門 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-bl">BL</span></div><div class="st-pos">出口 5</div><div class="st-count"><span class="count-tag">大：8</span><span class="count-tag">小：48</span></div></div>
+            <div class="locker-row"><div class="st-name">松江南京 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-o">O</span></div><div class="st-pos">近出口 8</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">古亭 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-o">O</span></div><div class="st-pos">近出口 4</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">忠孝新生 <span class="mrt-tag mrt-bl">BL</span><span class="mrt-tag mrt-o">O</span></div><div class="st-pos">近出口 4</div><div class="st-count"><span class="count-tag">大：8</span><span class="count-tag">小：14</span></div></div>
+            <div class="locker-row"><div class="st-name">大坪林 <span class="mrt-tag mrt-g">G</span><span class="mrt-tag mrt-y">Y</span></div><div class="st-pos">近出口 1</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">頭前庄 <span class="mrt-tag mrt-o">O</span><span class="mrt-tag mrt-y">Y</span></div><div class="st-pos">近出口 2</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">景安 <span class="mrt-tag mrt-o">O</span><span class="mrt-tag mrt-y">Y</span></div><div class="st-pos">近出口</div><div class="st-count"><span class="count-tag">大：2</span><span class="count-tag">小：8</span></div></div>
+            <div class="locker-row"><div class="st-name">板橋 <span class="mrt-tag mrt-bl">BL</span><span class="mrt-tag mrt-y">Y</span></div><div class="st-pos">通道層近 3A 出口</div><div class="st-count"><span class="count-tag">大：12</span><span class="count-tag">小：20</span></div></div>
+            <div class="locker-row"><div class="st-name">市政府 <span class="mrt-tag mrt-bl">BL</span></div><div class="st-pos">近出口 4</div><div class="st-count"><span class="count-tag">大：8</span><span class="count-tag">小：26</span></div></div>
         </div>
-        <a href="https://www.metro.taipei/cp.aspx?n=074C9E96AEC24806" target="_blank" class="check-btn">🔍 點我參考官方各站即時剩餘格數資訊</a>
+        <a href="https://www.metro.taipei/cp.aspx?n=074C9E96AEC24806" target="_blank" class="green-check-btn">🔍 點我參考官方各站即時剩餘格數資訊</a>
     </div>
 
     <div class="cta-container">
-        <a href="https://lin.ee/ebPVKrT" target="_blank" class="cta-button">💬 點我加 LINE 客服預約</a>
+        <a href="https://lin.ee/ebPVKrT" target="_blank" class="cta-button"><span>💬</span> 點我加 LINE 客服預約</a>
     </div>
-    <div class="notice-footer">🚀 所有服務，請先私訊「小室瓶栽」官方帳號預約安排</div>
+    <div class="notice-footer">🚀 所有服務，請先私訊官方帳號預約安排</div>
 </div>
 
 </body>
