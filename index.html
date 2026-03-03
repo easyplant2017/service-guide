@@ -17,6 +17,8 @@
         --primary: #4F5845; 
         --orange-accent: #e67e22;
         --green-accent: #5b7e55;
+        --red-accent: #c0392b; /* 新增紅色警示色 */
+
     }
     * { box-sizing: border-box; }
 
@@ -61,7 +63,32 @@
     ul.service-list b { color: #2c3e50; font-size: 19px; font-weight: 900; }
 
     ul.service-list span.desc { font-size: 15px; color: #666; display: block; line-height: 1.5; }
-    .highlight-tag { float: right; padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    /* 標籤樣式修改：讓它可以放在標題旁邊 */
+    .highlight-tag { 
+        padding: 2px 10px; 
+        border-radius: 6px; 
+        font-size: 11px; 
+        font-weight: 700; 
+        color: white; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-left: 8px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    /* 通用標籤設定 */
+    .h-tag { 
+        padding: 2px 10px; 
+        border-radius: 6px; 
+        font-size: 11px; 
+        font-weight: 900; 
+        color: white; 
+        display: inline-block;
+        white-space: nowrap;
+    }
+    /* 顏色區分 */
+    .tag-in { background: #2980b9; }   /* 收件：藍色 */
+    .tag-out { background: #27ae60; }  /* 取件：綠色 */
+    .tag-limit { background: #c0392b; } /* 限制：紅色 */
 
     /* 按鈕樣式修正 */
     .guide-btn {
@@ -164,16 +191,40 @@
             <div class="quad-header"><div class="icon-circle">📍</div>全台便利區</div>
             <div class="quad-content">
                 <ul class="service-list">
-                    <li><span class="highlight-tag" style="background:#5b7e55">最推薦</span><b>市集展售活動</b><span class="desc">現場收件最便利。</span></li>
-                    <li><b>7-11 店到店寄送</b><span class="desc">下班寄件便利。注意：寄回將採黑貓冷藏宅配。</span></li>
+                    <li>
+                        <div class="title-row">
+                            <b>市集展售活動</b>
+                            <span class="h-tag tag-in">可收件</span>
+                            <span class="h-tag tag-out">可送件</span>
+                        </div>
+                            <span class="desc">現場交件整理最便利。<br>最新活動可參考下方🎪近期市集展售預告！</span>
+                    </li>
+                    <li>
+                        <div class="title-row">
+                            <b>7-11 店到店寄送</b>
+                            <span class="h-tag tag-limit">僅限收件整理</span>
+                        </div>
+                        <span class="desc">
+                            下班寄件便利。
+                            <span style="color:#d35400; font-size: 13.5px; font-weight: 700;">(不提供完工寄回取貨)</span>
+                            <br>※ 因店到店毀損率較高，完工取貨請統一選擇「黑貓冷藏宅配」。
+                        </span>
+                    </li>                    
                     <li>
                         <div class="title-row">
                             <b>全台寄售點代收</b>
-                            <a href="#consignment-section" class="guide-btn green">閱讀寄售點指引</a>
+                            <span class="h-tag tag-in">可收件</span>
+                            <span class="h-tag tag-out">可送件</span>
+                            <a href="#consignment-section" class="guide-btn green">閱讀寄售合作商家指引</a>
                         </div>
                         <span class="desc">可至指定合作店家交件，詳見下方地圖。</span>
                     </li>
-                    <li><b>宅配物流服務</b><span class="desc">自行寄送回新莊門市。</span></li>
+                    <li>
+                        <b>黑貓冷藏宅配物流服務</b>
+                        <span class="h-tag tag-in">可收件</span>
+                        <span class="h-tag tag-out">可送件</span>
+                        <span class="desc">自行寄送回新莊門市。<br>寄送我們將額外收取每件170元運費！<br>材積限制：長加寬加高小於90cm、20公斤以下</span>
+                    </li>
                 </ul>
                 <div class="info-box market-box">
                     <b>🎪 近期市集展售預告：</b>
@@ -210,19 +261,25 @@
                     <li>
                         <div class="title-row">
                             <b>捷運置物櫃收送</b>
+                            <span class="h-tag tag-in">可收件</span>
+                            <span class="h-tag tag-out">可送件</span>
                             <a href="#subway-section" class="guide-btn orange">閱讀捷運收送指引</a>
-                            <span class="highlight-tag" style="background:#e67e22; float:none; margin-left: -5px;">最方便</span>
                         </div>
                         <span class="desc">指定捷運站點交件，時間彈性。</span>
                     </li>
                 </ul>
                 <div class="info-box fee-box">
                     <div class="plain-item"><b>🚇 捷運置物櫃保管費：</b></div>
-                    <div class="plain-item"><b>顧客寄放：</b><br>顧客先付基本費，領取費用餘額由小室支付。</div>
-                    <div class="plain-item" style="margin-top:5px;"><b>小室瓶栽放回：</b><br>小室先付基本費，領取費用餘額由顧客支付。</div>
+                    <div class="plain-item"><b>【送件】顧客交給小室：</b><br>您付「開始寄放」的錢，小室付「取件」的錢。</div>
+                    <div class="plain-item" style="margin-top:5px;"><b>【取件】小室交還顧客：</b><br>小室付「開始寄放」的錢，您付「取件」的錢。</div>
                 </div>
                 <ul class="service-list" style="margin-top:25px">
-                    <li><b>Lalamove 快遞</b><span class="desc">當日即刻收件，適合急需維護的瓶友。</span></li>
+                <li>
+                    <b>Lalamove 快遞</b>
+                    <span class="h-tag tag-in">可收件</span>
+                    <span class="h-tag tag-out">可送件</span>
+                    <span class="desc">當日即刻收件，適合急需維護的瓶友。</span>
+                </li>
                 </ul>
                 <div class="info-box fee-box">
                     <div class="plain-item"><b>📦 Lalamove 材積限制：</b></div>
@@ -241,7 +298,12 @@
             <div class="quad-header"><div class="icon-circle">💎</div>VIP 專屬親送</div>
             <div class="quad-content">
                 <ul class="service-list">
-                    <li><b>尊榮專員到府服務 (限雙北)</b><span class="desc">針對高價值瓶栽提供一對一收送服務。</span></li>
+                    <li>
+                        <b>尊榮專員到府服務 (限雙北)</b>
+                        <span class="h-tag tag-in">到府收件</span>
+                        <span class="h-tag tag-out">親自送件</span>
+                        <span class="desc">針對高價值瓶栽提供一對一收送服務。</span>
+                    </li>
                 </ul>
                 <div class="info-box market-box" style="border-left-color:#8e7cc3; background:#fdfbff">
                     <b style="color:#8e7cc3">✨ 專屬服務優勢：</b>
@@ -261,7 +323,12 @@
             <div class="quad-header"><div class="icon-circle">🏠</div>新莊旗艦店基地</div>
             <div class="quad-content">
                 <ul class="service-list">
-                    <li><span class="highlight-tag" style="background:#34495e">預約制</span><b>官方據點</b><span class="desc">旗艦級實體門市，提供專業養護環境。</span></li>
+                    <li>
+                        <b>官方據點</b>
+                        <span class="h-tag tag-in">可收件</span>
+                        <span class="h-tag tag-out">可送件</span>
+                        <span class="desc">旗艦級實體門市，提供專業養護環境。</span>
+                    </li>
                 </ul>
                 <div class="info-box navy-box">
                     <div class="plain-item"><b>🕒 營業時間：</b>平日 10:00 - 17:00 (需預約)</div>
